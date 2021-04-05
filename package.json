@@ -1,0 +1,23 @@
+{
+  "name": "beinest_backend",
+  "version": "1.0.0",
+  "description": "Bei's nest backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RickYCYang/beinest_backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RickYCYang/beinest_backend/issues"
+  },
+  "homepage": "https://github.com/RickYCYang/beinest_backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "instagram-web-api": "^2.2.2"
+  }
+}
