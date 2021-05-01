@@ -1,66 +1,52 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const axios = require('axios');
+const {refreshAccessToken} = require('../InstagramService');
+let accessToken = '';
 
-const Instagram = require('instagram-web-api');
-const { username, password } = {
-    username: 'rickyang2910',
-    password: 'a790909'
-};
+router.get('/test', async(req, res) => {
+   axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY').then(response => {
+    console.log(response.data.url);
+    console.log(response.data.explanation);
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+});   
 
-const client = new Instagram({ username, password });
-client.login();
-let portfolios = [];
-
-
-/* Route Start */ 
-router.get('/:portfolio', (req, res) => {
-    const portfolio = req.params.portfolio;
-    res.send(portfolio);
-});
 
 router.get('/', async(req, res) => {
-    if(portfolios.length === 0){
-        await refreshPortfolio();
-    }
-    res.send(portfolios);
-});    
-
-const refreshPortfolio = async() => {
-    let posts = await client.getPhotosByUsername({ username: 'beisnest', first: 50});
-    let hasNextPage = true;
-    let portfolio = {};
-    console.log('test', posts);
-    console.log('test 1 ', posts.user.edge_owner_to_timeline_media.page_info);
-    console.log('test 2 ', posts.user.edge_owner_to_timeline_media.edges);
-    while(hasNextPage){
-        for(const post of posts.user.edge_owner_to_timeline_media.edges){
-            console.log('post test', post);
-            const photoUrl  = post.node.display_url;
-            const caption = post.node.edge_media_to_caption.edges[0].node.text;
-            const postType = post.node.__typename;
-            let detailPhotoUrl = [];
-            if(post.node.edge_sidecar_to_children){
-                for(const url of post.node.edge_sidecar_to_children.edges){
-                    detailPhotoUrl.push(url.node.display_url);
-                }
-            }
-            portfolio['photoUrl'] = photoUrl;
-            portfolio['caption'] = caption;
-            portfolio['postType'] = postType;
-            if(detailPhotoUrl.length > 0){
-                portfolio['detailPhotoUrl'] = detailPhotoUrl;
-            }
-            portfolios.push(portfolio);
-            portfolio = {};
-            detailPhotoUrl = [];
-        }
-        hasNextPage = posts.user.edge_owner_to_timeline_media.page_info.has_next_page;
-        if(hasNextPage){
-            posts = await client.getPhotosByUsername({ username: 'beisnest', first: 50, after: posts.user.edge_owner_to_timeline_media.page_info.end_cursor});
-        }
-    }
-    console.log('portfolios', portfolios);
-    console.log('portfolios', portfolios.length);
-} 
+  ///Get long-term access token
+  if(accessToken === undefined || accessToken === null || accessToken === ''){
+    accessToken = await refreshAccessToken();
+  }
+  console.log('access token:', accessToken);
+  /*
+  axios.get(`${domain}/17841444428188641/media?access_token=${accessToken}`).then(response => {
+     console.log('1. Get POST ID list', response.data);
+     axios.get(`${domain}/18058439131303707/?fields=caption,like_count,media_url,timestamp,thumbnail_url&access_token=${accessToken}`).then(response => {
+      console.log('2. Get POST Detail', response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });   
+   })
+   .catch(error => {
+     console.log(error);
+   });
+   */
+ });    
+ 
+ router.get('/:post', async(req, res) => {
+    const post = req.params.post;
+    console.log('post', post);
+    axios.get(`https://graph.facebook.com/v10.0/18058439131303707/?fields=caption,like_count,media_url,timestamp,thumbnail_url&access_token=${accessToken}`).then(response => {
+     console.log(response.data);
+   })
+   .catch(error => {
+     console.log(error);
+   });
+ });   
 
 module.exports = router;
