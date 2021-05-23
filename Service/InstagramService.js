@@ -53,8 +53,9 @@ const getPostIdList = async() => {
 
 const getPostDetail = async(postId) => {
   let post;
+  //https://graph.facebook.com/v10.0/17867716613413911/?fields=caption
   await axios.get(`${domain}/${apiVersion}/${postId}/?fields=caption,like_count,media_type,media_url,timestamp,thumbnail_url&access_token=${beinestAccessToken}`).then(response => {
-     //console.log(response.data);
+     //console.log(response);
      post = response.data;
   }).catch(error => {
      console.log(error);
@@ -66,12 +67,11 @@ const setPortfolio = async() => {
   //console.log('setPortfolio start');
   ///1. Get all post id
   await getPostIdList();
-
+  
   ///2. Get all post detail by id
   portfolio = [];
   for(let index in postIdList){
     const post = await getPostDetail(postIdList[index].id);
-    //console.log('post', post);
     portfolio[index] = new Portfolio(post.id, post.caption, post.like_count, post.media_type, post.media_url, post.timestamp);
   }
   //console.log('setPortfolio end');

@@ -23,7 +23,6 @@ router.get('/getAccessToken', async(req, res) => {
 
 router.get('/getPostIdList', async(req, res) => {
   const postIdList = await getPostIdList();
-  console.log(postIdList.length)
   res.status(200).send(postIdList);
 })
  
