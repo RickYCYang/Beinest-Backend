@@ -1,6 +1,9 @@
 {
   "name": "beinest_backend",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.3"
+  },
   "description": "Bei's nest backend",
   "main": "app.js",
   "scripts": {
