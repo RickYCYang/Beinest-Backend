@@ -2,6 +2,10 @@ var express = require("express") ;
 var app = express();
 var cors = require('cors');
 
+///For Static Files
+app.use(express.static('public'));
+
+///For deal with Browser's cors polycy
 app.use(cors());
 
 /* Middleware to verify header app-key */
