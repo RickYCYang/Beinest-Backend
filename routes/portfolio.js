@@ -12,9 +12,6 @@ router.get('/', async(req, res) => {
   res.status(200).send(portfolio);
 });    
 
-router.get('/test', async(req, res) => {  
-  res.status(200).send({'message': 'Hello World'});
-});    
 
 router.get('/getAccessToken', async(req, res) => {
   await getLongAccessToken();
