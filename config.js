@@ -4,7 +4,7 @@ module.exports = {
     'beinestClientId': '305171551065408',
     'beinestClientSecret': '13f895c3d321b15c0de97bc2948406e8',
     'beinestInstagramAccount': '17841409792934943',
-    'beinestAccessToken': 'EAAEVjUnllUABAPPR7jm6Vaz2PX5UyEG3G6sY2krBlRxJU0D0JBxpgc8Pzmf6fvmdSoA8wLIQxnSNLjjpAZCHIj7yJAzHisP2QdZClD2EmNffpw8OKBzOXN2riqOkZBudpesdmcAZBbtlNuaUIOyORbi7PMJ8CCUwLM2OAVbJwCHZCu6J5jQ6m',
+    'beinestAccessToken': 'EAAEVjUnllUABAA2w3JH7lZApJxG8zFpAdzpp9TKZBDDBzs4Jbf5OvFXIfpvZCunPtEZAvFinW3qByjtesEGfASLI1TSZBaMIAHLQYTeJdedJSaytiXZBLp7jiXsfmld3gNx2cXAeZBmNOvqa4HJjYE03dfb3b7TqyAr2uLZAtALNKUyYbYBXnTGn',
     'chingshopClientId': '139544868138435',
     'chingshtopClientSecret': 'ebe76f1a48176c306b848f045d9369ac',
     'chingshopInstagramAccount': '17841444428188641',
