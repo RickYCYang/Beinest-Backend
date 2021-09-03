@@ -8,5 +8,4 @@ module.exports = {
     'chingshopClientId': '139544868138435',
     'chingshtopClientSecret': 'ebe76f1a48176c306b848f045d9369ac',
     'chingshopInstagramAccount': '17841444428188641',
-    'chingshtopAccessToken': 'EAABZB6lJLrcMBAAzoKTEwC3oxjp3LEwxAiVcHmOMLJh67WuRWjmldW6eDPr3MUWTcyZA61wsZBBJdVXkBvcoLZANGWrbh4nORVJKrvXRWZB9LnBQAoclZBZA8Q2LEeMOoUXgYVXQ3cBtGpuPXb7Y5UuZAOz6dEHWVKLZBGILqZAhvkBQZDZD',
 }

@@ -10,7 +10,6 @@ const beinestAccessToken = config.beinestAccessToken;
 const chingshopClientId = config.chingshopClientId;
 const chingshtopClientSecret = config.chingshtopClientSecret;
 const chingshopInstagramAccount = config.chingshopInstagramAccount;
-const chingshtopAccessToken = config.chingshtopAccessToken;
 
 let postIdList = [];
 let portfolio = [];
