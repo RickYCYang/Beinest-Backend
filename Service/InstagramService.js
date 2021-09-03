@@ -17,7 +17,7 @@ let portfolio = [];
 const getLongAccessToken = async() => {
     let accessToken;
     const clientSecret = beinestClientSecret;
-    const shortTernAccessToken = 'EAAEVjUnllUABAISV7wWwfHCaD2dAnU1uZCNoWW3WSkOrlgfhj0yupkJEZArjSk5IiDFcWZCMIhjZBctmQCOk5rRpCZBCAcVZAymkeHVGZBIKsHIdpIVKmqWaQTp3VAXDDBnpMtICM7tUMMzX8ZBdzUMZB6awKdKbCzIOtZAK78hZCqyh7RUuAI69DSaiVOk94ZCVwWEZAZAhybWrhUL5x5oIduvxTT'
+    const shortTernAccessToken = 'EAAEVjUnllUABAMJErihTNwxrRXmxqfftilM6g4703Vs0LBUcoZCm1WIxZB22osjpGQwVp6fqm3Ch6ZBxL03SuKL0pZA5ZByg7KRiWZALyH9aLPoAS18sZAZAeQDvfgGzPbl6uwytyxpvvSXOH2QaRx5HahB6mG1SKI8XnwOJqtXeasW6U96PMeYk1NFeZCyYW2BhPq8IovtrngzG7UDIc1v0k'
     await axios.get(`${domain}/${apiVersion}/oauth/access_token?grant_type=fb_exchange_token&client_id=${beinestClientId}&client_secret=${beinestClientSecret}&fb_exchange_token=${shortTernAccessToken}`)
     .then(response => {
       accessToken = response.data.access_token;
