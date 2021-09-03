@@ -14,8 +14,8 @@ router.get('/', async(req, res) => {
 
 
 router.get('/getAccessToken', async(req, res) => {
-  await getLongAccessToken();
-  res.status(200).send({'message': 'Hello World'});
+  const accessToken = await getLongAccessToken();
+  res.status(200).send({'accessToken': accessToken});
 })
 
 router.get('/getPostIdList', async(req, res) => {
